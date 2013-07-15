@@ -1,0 +1,1 @@
+{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"config.xml":{"/widget":{"<feature name=\"LiteGap\"><param name=\"ios-package\" value=\"LiteGap\" /><param name=\"onload\" value=\"true\" /></feature>":1}}},"installed_plugins":{"com.couchbase.litegap":{"PACKAGE_NAME":"com.couchbase.LiteGap"}},"dependent_plugins":{}}

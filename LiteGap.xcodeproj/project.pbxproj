@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -46,6 +45,20 @@
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		B5F28C2DCAE94FDEBA1CA15B /* LiteGap.m in Sources */ = {isa = PBXBuildFile; fileRef = F414E0BAE4A44A0E8174518B /* LiteGap.m */; };
+		7E062316080F4547A5EEF707 /* CouchbaseLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F240F352B9CE4325BDAB8A7D /* CouchbaseLite.a */; };
+		495BB91BAF02474DBCE4C660 /* CouchbaseLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 214135B2605748ED88F962A4 /* CouchbaseLite.a */; };
+		5FAB052A0DBD4754B40A799E /* CouchbaseLiteListener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9E446A19DC477AB60F795A /* CouchbaseLiteListener.a */; };
+		932F1BFB7F534AD18B867CBB /* CouchbaseLiteListener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8003A261ADC4C8AAEC43FDF /* CouchbaseLiteListener.a */; };
+		00F55A029A5C425EAF7F7FDC /* JavaScriptCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFD11A84DBD4242B47162B6 /* JavaScriptCore.a */; };
+		9709D076408A44378DE06CDC /* JavaScriptCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9434B49B27C41FFB4B0A164 /* JavaScriptCore.a */; };
+		153B968240764E6EA904A54A /* libCBLJSViewCompiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3832D7076B884E939F38BAE5 /* libCBLJSViewCompiler.a */; };
+		D97FF3B712EC4FE6B44D6DBE /* libCBLJSViewCompiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F46C1D0A62574777939ACC85 /* libCBLJSViewCompiler.a */; };
+		19EDBDF298684E7390E054CA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BADEBA139F48CCB1FC0418 /* libsqlite3.dylib */; };
+		4F568FA79A464B4F8E3FBD58 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 29C2A4AF55DF4ADFBF21C7EC /* libstdc++.dylib */; };
+		AC8D1988C72C470F894B3703 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 319A80A563FB467DAA30A836 /* libicucore.dylib */; };
+		C84CCBAB8B1C4134BE627848 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1003172E7D411AA48BB969 /* libz.dylib */; };
+		B08049519A904003A89DA9CB /* Security.framework in Resources */ = {isa = PBXBuildFile; fileRef = 46B1CB45E4094708800D56C2 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +124,63 @@
 		8D1107310486CEB800E47090 /* LiteGap-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LiteGap-Info.plist"; path = "../LiteGap-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = LiteGap/config.xml; sourceTree = "<group>"; };
+		F414E0BAE4A44A0E8174518B /* LiteGap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "LiteGap.m"; path = "com.couchbase.litegap/LiteGap.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F240F352B9CE4325BDAB8A7D /* CouchbaseLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "CouchbaseLite.a"; path = "com.couchbase.litegap/CouchbaseLite.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		214135B2605748ED88F962A4 /* CouchbaseLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "CouchbaseLite.a"; path = "LiteGap/Plugins/com.couchbase.litegap/CouchbaseLite.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		4A9E446A19DC477AB60F795A /* CouchbaseLiteListener.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "CouchbaseLiteListener.a"; path = "com.couchbase.litegap/CouchbaseLiteListener.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		A8003A261ADC4C8AAEC43FDF /* CouchbaseLiteListener.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "CouchbaseLiteListener.a"; path = "LiteGap/Plugins/com.couchbase.litegap/CouchbaseLiteListener.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		3EFD11A84DBD4242B47162B6 /* JavaScriptCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "JavaScriptCore.a"; path = "com.couchbase.litegap/JavaScriptCore.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		E9434B49B27C41FFB4B0A164 /* JavaScriptCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "JavaScriptCore.a"; path = "LiteGap/Plugins/com.couchbase.litegap/JavaScriptCore.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		3832D7076B884E939F38BAE5 /* libCBLJSViewCompiler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libCBLJSViewCompiler.a"; path = "com.couchbase.litegap/libCBLJSViewCompiler.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		F46C1D0A62574777939ACC85 /* libCBLJSViewCompiler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libCBLJSViewCompiler.a"; path = "LiteGap/Plugins/com.couchbase.litegap/libCBLJSViewCompiler.a"; sourceTree = "<group>"; fileEncoding = 4; };
+		A32D6B833CD24080B5188611 /* LiteGap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LiteGap.h"; path = "com.couchbase.litegap/LiteGap.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9C38239E87254B0FB3B23F0F /* CBLRegisterJSViewCompiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLRegisterJSViewCompiler.h"; path = "com.couchbase.litegap/CBLRegisterJSViewCompiler.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		385C515011B942A5AA8DEFE1 /* CBLAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLAttachment.h"; path = "com.couchbase.litegap/CBLAttachment.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		2DBE387905A0457E9A69F8DA /* CBLDatabase+Attachments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase+Attachments.h"; path = "com.couchbase.litegap/CBLDatabase+Attachments.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		34EC2215FC724A74A5E1A845 /* CBLDatabase+Insertion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase+Insertion.h"; path = "com.couchbase.litegap/CBLDatabase+Insertion.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F65DCDF4D39D4E038B5A4FC6 /* CBLDatabase+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase+Internal.h"; path = "com.couchbase.litegap/CBLDatabase+Internal.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		861F944DB9B34AAD8DAEFC2C /* CBLDatabase+LocalDocs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase+LocalDocs.h"; path = "com.couchbase.litegap/CBLDatabase+LocalDocs.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5FE1C37A0E654BEDA9BC22F1 /* CBLDatabase+Replication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase+Replication.h"; path = "com.couchbase.litegap/CBLDatabase+Replication.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		34E9BB2B6DB349BBA364EC55 /* CBLDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase.h"; path = "com.couchbase.litegap/CBLDatabase.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FFE95C8F0C994DE18267E7DC /* CBLDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLDocument.h"; path = "com.couchbase.litegap/CBLDocument.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		E809538A711D407FB426047C /* CBLJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLJSON.h"; path = "com.couchbase.litegap/CBLJSON.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		8588952218A04D76A4AF2A84 /* CBLManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLManager.h"; path = "com.couchbase.litegap/CBLManager.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		2D54248B7AA94649801A78C5 /* CBLModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLModel.h"; path = "com.couchbase.litegap/CBLModel.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		06BC77995BB04EB5B56D3DFA /* CBLModelFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLModelFactory.h"; path = "com.couchbase.litegap/CBLModelFactory.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		B58CBD34FFA34726B14827EC /* CBLQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLQuery.h"; path = "com.couchbase.litegap/CBLQuery.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		B28D9BB95DB54777B80C7ACC /* CBLReplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLReplication.h"; path = "com.couchbase.litegap/CBLReplication.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7DC65CBD997740D9A79CA717 /* CBLRevision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLRevision.h"; path = "com.couchbase.litegap/CBLRevision.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7BAA209E3AFA42929C7AF1DA /* CBLStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLStatus.h"; path = "com.couchbase.litegap/CBLStatus.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		8C8DFB40AE9B4F3CB5D0B041 /* CBLUITableSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLUITableSource.h"; path = "com.couchbase.litegap/CBLUITableSource.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		161D243D852542AA98DB8930 /* CBLView+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLView+Internal.h"; path = "com.couchbase.litegap/CBLView+Internal.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		594B7D8D71ED4BF4B0878191 /* CBLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLView.h"; path = "com.couchbase.litegap/CBLView.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		81A4B80AC4084566A7E582D9 /* CBL_Attachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Attachment.h"; path = "com.couchbase.litegap/CBL_Attachment.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		E6B0026FEBB643C89A96583F /* CBL_Body.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Body.h"; path = "com.couchbase.litegap/CBL_Body.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		026AB08449134746BC75D28D /* CBL_Puller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Puller.h"; path = "com.couchbase.litegap/CBL_Puller.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		B6A55A4F540E496CBF81F31F /* CBL_Pusher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Pusher.h"; path = "com.couchbase.litegap/CBL_Pusher.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		8448EA49C68C466A9EDD53C0 /* CBL_Replicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Replicator.h"; path = "com.couchbase.litegap/CBL_Replicator.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		38D0B0CC28E74497B061EA06 /* CBL_Revision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Revision.h"; path = "com.couchbase.litegap/CBL_Revision.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		DE064BFEB38744E2AE4A258A /* CBL_Router.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Router.h"; path = "com.couchbase.litegap/CBL_Router.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6DA03508D4854BB087DA03B6 /* CBL_Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_Server.h"; path = "com.couchbase.litegap/CBL_Server.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		1821E4EF9892409EAABDE256 /* CBL_URLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBL_URLProtocol.h"; path = "com.couchbase.litegap/CBL_URLProtocol.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		D67B189BE0194F91A4048343 /* CouchbaseLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CouchbaseLite.h"; path = "com.couchbase.litegap/CouchbaseLite.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		D13F9B41BC4A4C329F68D250 /* MYDynamicObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MYDynamicObject.h"; path = "com.couchbase.litegap/MYDynamicObject.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		43B5F7E5AF0841A995D059FC /* CouchbaseLitePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CouchbaseLitePrivate.h"; path = "com.couchbase.litegap/CouchbaseLitePrivate.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		15C256A05EC44DB9A9DD6ED5 /* CBLListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBLListener.h"; path = "com.couchbase.litegap/CBLListener.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		2A82B35B3B7945249345FBF2 /* JSBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JSBase.h"; path = "com.couchbase.litegap/JSBase.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		DF393DB188B44868B01D625A /* JSContextRef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JSContextRef.h"; path = "com.couchbase.litegap/JSContextRef.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		915F984242A94907B3F1447E /* JSObjectRef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JSObjectRef.h"; path = "com.couchbase.litegap/JSObjectRef.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		268789896CFE479E96060F7A /* JSStringRef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JSStringRef.h"; path = "com.couchbase.litegap/JSStringRef.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		D934DF64A0B74725BFE77CA9 /* JSStringRefCF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JSStringRefCF.h"; path = "com.couchbase.litegap/JSStringRefCF.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5E9052BAE1F6461F8F5D33A6 /* JSValueRef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JSValueRef.h"; path = "com.couchbase.litegap/JSValueRef.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		73ED05DFBAE64B7BA8FCA72F /* JavaScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JavaScript.h"; path = "com.couchbase.litegap/JavaScript.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		758347EA484E47ADAB2ADC57 /* JavaScriptCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "JavaScriptCore.h"; path = "com.couchbase.litegap/JavaScriptCore.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		3CEE2D486294413EAD56738F /* WebKitAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WebKitAvailability.h"; path = "com.couchbase.litegap/WebKitAvailability.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		04BADEBA139F48CCB1FC0418 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsqlite3.dylib"; path = "usr/lib/libsqlite3.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
+		29C2A4AF55DF4ADFBF21C7EC /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
+		319A80A563FB467DAA30A836 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libicucore.dylib"; path = "usr/lib/libicucore.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
+		ED1003172E7D411AA48BB969 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
+		46B1CB45E4094708800D56C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +207,15 @@
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
+				495BB91BAF02474DBCE4C660 /* CouchbaseLite.a in Frameworks */,
+				932F1BFB7F534AD18B867CBB /* CouchbaseLiteListener.a in Frameworks */,
+				9709D076408A44378DE06CDC /* JavaScriptCore.a in Frameworks */,
+				D97FF3B712EC4FE6B44D6DBE /* libCBLJSViewCompiler.a in Frameworks */,
+				19EDBDF298684E7390E054CA /* libsqlite3.dylib in Frameworks */,
+				4F568FA79A464B4F8E3FBD58 /* libstdc++.dylib in Frameworks */,
+				AC8D1988C72C470F894B3703 /* libicucore.dylib in Frameworks */,
+				C84CCBAB8B1C4134BE627848 /* libz.dylib in Frameworks */,
+				B08049519A904003A89DA9CB /* Security.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +321,15 @@
 				301BF5C4109A6A2B0062928A /* SystemConfiguration.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				30E5649113A7FCAF007403D8 /* CoreMedia.framework */,
+				214135B2605748ED88F962A4 /* CouchbaseLite.a */,
+				A8003A261ADC4C8AAEC43FDF /* CouchbaseLiteListener.a */,
+				E9434B49B27C41FFB4B0A164 /* JavaScriptCore.a */,
+				F46C1D0A62574777939ACC85 /* libCBLJSViewCompiler.a */,
+				04BADEBA139F48CCB1FC0418 /* libsqlite3.dylib */,
+				29C2A4AF55DF4ADFBF21C7EC /* libstdc++.dylib */,
+				319A80A563FB467DAA30A836 /* libicucore.dylib */,
+				ED1003172E7D411AA48BB969 /* libz.dylib */,
+				46B1CB45E4094708800D56C2 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -257,6 +345,54 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				F414E0BAE4A44A0E8174518B /* LiteGap.m */,
+				F240F352B9CE4325BDAB8A7D /* CouchbaseLite.a */,
+				4A9E446A19DC477AB60F795A /* CouchbaseLiteListener.a */,
+				3EFD11A84DBD4242B47162B6 /* JavaScriptCore.a */,
+				3832D7076B884E939F38BAE5 /* libCBLJSViewCompiler.a */,
+				A32D6B833CD24080B5188611 /* LiteGap.h */,
+				9C38239E87254B0FB3B23F0F /* CBLRegisterJSViewCompiler.h */,
+				385C515011B942A5AA8DEFE1 /* CBLAttachment.h */,
+				2DBE387905A0457E9A69F8DA /* CBLDatabase+Attachments.h */,
+				34EC2215FC724A74A5E1A845 /* CBLDatabase+Insertion.h */,
+				F65DCDF4D39D4E038B5A4FC6 /* CBLDatabase+Internal.h */,
+				861F944DB9B34AAD8DAEFC2C /* CBLDatabase+LocalDocs.h */,
+				5FE1C37A0E654BEDA9BC22F1 /* CBLDatabase+Replication.h */,
+				34E9BB2B6DB349BBA364EC55 /* CBLDatabase.h */,
+				FFE95C8F0C994DE18267E7DC /* CBLDocument.h */,
+				E809538A711D407FB426047C /* CBLJSON.h */,
+				8588952218A04D76A4AF2A84 /* CBLManager.h */,
+				2D54248B7AA94649801A78C5 /* CBLModel.h */,
+				06BC77995BB04EB5B56D3DFA /* CBLModelFactory.h */,
+				B58CBD34FFA34726B14827EC /* CBLQuery.h */,
+				B28D9BB95DB54777B80C7ACC /* CBLReplication.h */,
+				7DC65CBD997740D9A79CA717 /* CBLRevision.h */,
+				7BAA209E3AFA42929C7AF1DA /* CBLStatus.h */,
+				8C8DFB40AE9B4F3CB5D0B041 /* CBLUITableSource.h */,
+				161D243D852542AA98DB8930 /* CBLView+Internal.h */,
+				594B7D8D71ED4BF4B0878191 /* CBLView.h */,
+				81A4B80AC4084566A7E582D9 /* CBL_Attachment.h */,
+				E6B0026FEBB643C89A96583F /* CBL_Body.h */,
+				026AB08449134746BC75D28D /* CBL_Puller.h */,
+				B6A55A4F540E496CBF81F31F /* CBL_Pusher.h */,
+				8448EA49C68C466A9EDD53C0 /* CBL_Replicator.h */,
+				38D0B0CC28E74497B061EA06 /* CBL_Revision.h */,
+				DE064BFEB38744E2AE4A258A /* CBL_Router.h */,
+				6DA03508D4854BB087DA03B6 /* CBL_Server.h */,
+				1821E4EF9892409EAABDE256 /* CBL_URLProtocol.h */,
+				D67B189BE0194F91A4048343 /* CouchbaseLite.h */,
+				D13F9B41BC4A4C329F68D250 /* MYDynamicObject.h */,
+				43B5F7E5AF0841A995D059FC /* CouchbaseLitePrivate.h */,
+				15C256A05EC44DB9A9DD6ED5 /* CBLListener.h */,
+				2A82B35B3B7945249345FBF2 /* JSBase.h */,
+				DF393DB188B44868B01D625A /* JSContextRef.h */,
+				915F984242A94907B3F1447E /* JSObjectRef.h */,
+				268789896CFE479E96060F7A /* JSStringRef.h */,
+				D934DF64A0B74725BFE77CA9 /* JSStringRefCF.h */,
+				5E9052BAE1F6461F8F5D33A6 /* JSValueRef.h */,
+				73ED05DFBAE64B7BA8FCA72F /* JavaScript.h */,
+				758347EA484E47ADAB2ADC57 /* JavaScriptCore.h */,
+				3CEE2D486294413EAD56738F /* WebKitAvailability.h */,
 			);
 			name = Plugins;
 			path = LiteGap/Plugins;
@@ -331,7 +467,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 460;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LiteGap" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -424,6 +560,11 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				B5F28C2DCAE94FDEBA1CA15B /* LiteGap.m in Sources */,
+				7E062316080F4547A5EEF707 /* CouchbaseLite.a in Frameworks */,
+				5FAB052A0DBD4754B40A799E /* CouchbaseLiteListener.a in Frameworks */,
+				00F55A029A5C425EAF7F7FDC /* JavaScriptCore.a in Frameworks */,
+				153B968240764E6EA904A54A /* libCBLJSViewCompiler.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +630,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = LiteGap;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+				);
 			};
 			name = Debug;
 		};
@@ -506,6 +654,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = LiteGap;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+					"\"$(SRCROOT)/LiteGap/Plugins/com.couchbase.litegap\"",
+				);
 			};
 			name = Release;
 		};
@@ -540,8 +695,8 @@
 					"-weak_framework",
 					CoreMedia,
 					"-weak-lSystem",
-          "-force_load",
-          "${TARGET_BUILD_DIR}/libCordova.a",
+					"-force_load",
+					"${TARGET_BUILD_DIR}/libCordova.a",
 					"-ObjC",
 				);
 				SDKROOT = iphoneos;
@@ -581,8 +736,8 @@
 					"-weak_framework",
 					CoreMedia,
 					"-weak-lSystem",
-          "-force_load",
-          "${TARGET_BUILD_DIR}/libCordova.a",
+					"-force_load",
+					"${TARGET_BUILD_DIR}/libCordova.a",
 					"-ObjC",
 				);
 				SDKROOT = iphoneos;
