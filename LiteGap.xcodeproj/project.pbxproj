@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00F55A029A5C425EAF7F7FDC /* JavaScriptCore.a in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD11A84DBD4242B47162B6 /* JavaScriptCore.a */; };
 		153B968240764E6EA904A54A /* libCBLJSViewCompiler.a in Sources */ = {isa = PBXBuildFile; fileRef = 3832D7076B884E939F38BAE5 /* libCBLJSViewCompiler.a */; };
@@ -60,6 +59,10 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		D97FF3B712EC4FE6B44D6DBE /* libCBLJSViewCompiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F46C1D0A62574777939ACC85 /* libCBLJSViewCompiler.a */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		22613BDB28454E658298AE02 /* CBCordovaPersona.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBDC72801D44A059CE01B58 /* CBCordovaPersona.m */; };
+		E1D9C5A71F2640848CF30970 /* PersonaController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EC8B3F18A2469890B66CCF /* PersonaController.m */; };
+		86906EC36A0A4BBBAD03647A /* PersonaController+UIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F3D79844024078AD1FCE17 /* PersonaController+UIKit.m */; };
+		547D01CECF2444D2B69B044C /* PersonaController.js in Resources */ = {isa = PBXBuildFile; fileRef = 545E8201B7624E65A2E717EF /* PersonaController.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +185,13 @@
 		F65DCDF4D39D4E038B5A4FC6 /* CBLDatabase+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CBLDatabase+Internal.h"; path = "com.couchbase.litegap/CBLDatabase+Internal.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = LiteGap/config.xml; sourceTree = "<group>"; };
 		FFE95C8F0C994DE18267E7DC /* CBLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBLDocument.h; path = com.couchbase.litegap/CBLDocument.h; sourceTree = "<group>"; };
+		0CBDC72801D44A059CE01B58 /* CBCordovaPersona.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CBCordovaPersona.m"; path = "com.couchbase.persona/CBCordovaPersona.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A7EC8B3F18A2469890B66CCF /* PersonaController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PersonaController.m"; path = "com.couchbase.persona/PersonaController.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		D4F3D79844024078AD1FCE17 /* PersonaController+UIKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PersonaController+UIKit.m"; path = "com.couchbase.persona/PersonaController+UIKit.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		B95A27D42DA645CBA65F534D /* CBCordovaPersona.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CBCordovaPersona.h"; path = "com.couchbase.persona/CBCordovaPersona.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		A57B0E37457C4CDBBB6126F6 /* PersonaController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PersonaController.h"; path = "com.couchbase.persona/PersonaController.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		26BB9FBFBA534A07B2325CF7 /* PersonaController+UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PersonaController+UIKit.h"; path = "com.couchbase.persona/PersonaController+UIKit.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		545E8201B7624E65A2E717EF /* PersonaController.js */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "PersonaController.js"; path = "PersonaController.js"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +306,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* LiteGap-Info.plist */,
+				545E8201B7624E65A2E717EF /* PersonaController.js */,
 			);
 			name = Resources;
 			path = LiteGap/Resources;
@@ -394,6 +405,12 @@
 				73ED05DFBAE64B7BA8FCA72F /* JavaScript.h */,
 				758347EA484E47ADAB2ADC57 /* JavaScriptCore.h */,
 				3CEE2D486294413EAD56738F /* WebKitAvailability.h */,
+				0CBDC72801D44A059CE01B58 /* CBCordovaPersona.m */,
+				A7EC8B3F18A2469890B66CCF /* PersonaController.m */,
+				D4F3D79844024078AD1FCE17 /* PersonaController+UIKit.m */,
+				B95A27D42DA645CBA65F534D /* CBCordovaPersona.h */,
+				A57B0E37457C4CDBBB6126F6 /* PersonaController.h */,
+				26BB9FBFBA534A07B2325CF7 /* PersonaController+UIKit.h */,
 			);
 			name = Plugins;
 			path = LiteGap/Plugins;
@@ -532,6 +549,7 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				547D01CECF2444D2B69B044C /* PersonaController.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +598,9 @@
 				5FAB052A0DBD4754B40A799E /* CouchbaseLiteListener.a in Sources */,
 				00F55A029A5C425EAF7F7FDC /* JavaScriptCore.a in Sources */,
 				153B968240764E6EA904A54A /* libCBLJSViewCompiler.a in Sources */,
+				22613BDB28454E658298AE02 /* CBCordovaPersona.m in Sources */,
+				E1D9C5A71F2640848CF30970 /* PersonaController.m in Sources */,
+				86906EC36A0A4BBBAD03647A /* PersonaController+UIKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

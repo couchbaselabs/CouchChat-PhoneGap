@@ -1,4 +1,7 @@
 $(function() {
+
+console.log("going")
+
   var config = require('./app/config'),
     controller = require("./app/controller"),
     sync = require('./app/sync'),
@@ -45,7 +48,7 @@ $(function() {
 
   config.setup(function(err, ok){
     if (err) {
-      return console.log(err);
+      return config.log(["setup erz",err]);
     }
     appInit(function(err, email) {
       var contentRouter = router(controller, $("#content")[0]);

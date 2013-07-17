@@ -61,7 +61,12 @@ var ddoc = {
   }
 }
 
+config.log = function() {
+  console.log(JSON.stringify(arguments))
+}
+
 config.setup = function(done) {
   // install the views
+  console.log("setup")
   config.db.forceSave(ddoc, done);
 }
