@@ -2,7 +2,8 @@
 
 var fs = require("fs");
 
-var b = require("browserify")({watch : false, debug : true});
+
+var b = require("browserify")({watch : (process.argv[2] == "-w"), debug : true});
 b.addEntry(__dirname + "/www/js/app.js");
 b.on('bundle', function() {
   var src = b.bundle();
