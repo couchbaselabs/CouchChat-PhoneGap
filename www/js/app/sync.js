@@ -6,7 +6,7 @@ function refreshSync(rep, cb) {
   cancel.cancel = true;
   coax.post([config.dbHost, "_replicate"], cancel, function(err) {
     if (err) {
-      console.log(["nothing to cancel", err])
+      config.log("nothing to cancel", err)
     }
     coax.post([config.dbHost, "_replicate"], rep, cb)
   })
@@ -64,6 +64,7 @@ function waitForSyncSuccess(timeout, session_id, cb) {
     var offline = true, needsLogin = true;
     if (this.responseText) {
       task = parseActiveTasks(this.responseText, session_id);
+      config.log("active task", task)
       if (task.status == "Idle" || task.status == "Stopped") {
         // todo maybe we are cool with tasks that have Processed > 0 changes
         offline = false;
@@ -76,6 +77,7 @@ function waitForSyncSuccess(timeout, session_id, cb) {
         done = true;
         cb("needsLogin", task);
       } else if (!offline) {
+        config.log("waitForSyncSuccess", task)
         clearTimeout(errorTimeout);
         done = true;
         cb(false, task);

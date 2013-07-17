@@ -1,7 +1,5 @@
 $(function() {
 
-console.log("going")
-
   var config = require('./app/config'),
     controller = require("./app/controller"),
     sync = require('./app/sync'),

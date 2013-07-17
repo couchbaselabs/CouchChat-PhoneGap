@@ -61,12 +61,17 @@ var ddoc = {
   }
 }
 
-config.log = function() {
+config.log = function(a, b) {
+  if (typeof a == "string") {
+    return console.log(a, JSON.stringify(b))
+  }
   console.log(JSON.stringify(arguments))
 }
 
 config.setup = function(done) {
   // install the views
-  console.log("setup")
-  config.db.forceSave(ddoc, done);
+  config.db.put(function(err, ok){
+    if (err.status != 412) throw(JSON.stringify(err));
+    config.db.forceSave(ddoc, done);
+  })
 }
