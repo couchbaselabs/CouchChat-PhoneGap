@@ -1,44 +1,99 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<!--
+    http://www.apache.org/licenses/LICENSE-2.0
+-->
 <html>
-<head>
-<title>Cordova</title>
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-<script type="text/javascript" charset="utf-8" src="litegap.js"></script>
-<script type="text/javascript" charset="utf-8">
-
-    // Call onDeviceReady when PhoneGap is loaded.
-    //
-    // At this point, the document has loaded but phonegap-1.0.0.js has not.
-    // When PhoneGap is loaded and talking with the native device,
-    // it will call the event `deviceready`.
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    function onDeviceReady() {
-        // Now safe to use the PhoneGap API
-        console.log("onDeviceReady() called")
-        if (window.litegap) {
-            window.litegap.getURL(function(err, url) {
-                if (err) {
-                    console.log("error launching: " + err)
-                } else {
-                    console.log("Couchbase Lite running at " + url)
-                }
-            });
-        } else {
-            console.log("LiteGap plugin not installed.")
-        }
-    }
-
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>CouchChat</title>
+    </head>
+    <body>
+        <section id="content">
+            <header>
+                <h2>CouchChat for PhoneGap</h2>
+            </header>
+            <article>
+                <p>Loading...</p>
+            </article>
+        </section>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="cordova-persona.js"></script>
+        <script type="text/javascript" src="js/zepto.min.js"></script>
+        <script type="text/javascript" src="js/output.js"></script>
+<!-- mustache templates -->
+<script type="text/mustache" id="index-mu">
+<header>
+    <h2>{{user}}</h2>
+    <a class="new" href="#/rooms/new">New</a>
+</header>
+<article>
+    <ul>
+    {{#rows}}
+        <li>
+            <a href="#/rooms/{{doc._id}}">{{doc.title}}</a>
+            <div class="details">
+                <span>{{value.1}} messages</span>
+                <br/>
+                <span>latest by {{value.2}}</span>
+            </div>
+        </li>
+    {{/rows}}
+    </ul>
+</article>
 </script>
 
+<script type="text/mustache" id="room-mu">
+<header>
+    <a href="#/">Rooms</a>
+    <form class="message">
+        <input type="text" name="markdown" placeholder="your message here"></input>
+        <a href="#" class="photo">Photo</a>
+        <input type="hidden" name="channel_id" value="{{_id}}"></input>
+    </form>
+</header>
+<article class="messages">
+</article>
+</script>
 
-</head>
-<body>
-<h1>Hello World, Phonegap..</h1>
+<script type="text/mustache" id="listMessages-mu">
+<ul>
+{{#rows}}
+    <li class="{{who}}">
+        {{#photo}}
+            <img class="picture" src="{{photo}}"/>
+        {{/photo}}
+        <span>{{value.1}}</span>
+        <div class="details">
+            {{value.0}}
+        </div>
+    </li>
+{{/rows}}
+</ul>
+</script>
 
-Check the logs and you should see things have happened..
+<script type="text/mustache" id="newRoom-mu">
+<header>
+    <h2>
+        Invite to Chat
+    </h2>
+</header>
+<article>
+    <form>
+    <input size="60" type="text" name="title" placeholder="Room Title (optional)"></input>
+    <input type="submit" value="Invite"></input>
+    <p>Choose people to invite:</p>
+    <ul>
+    {{#rows}}
+        <li><input type="checkbox" name="members" value="{{key}}"> {{value}}</li>
+    {{/rows}}
+    </ul>
+    </form>
+</article>
+</script>
 
-</body>
+    </body>
 </html>
