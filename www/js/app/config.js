@@ -6,8 +6,8 @@ var config = module.exports = {
   coax = require("coax");
 
 // todo make configurable in-app
-config.syncOrigin = 'http://mineral.local:4984/';
-config.syncTarget = 'http://mineral.local:4984/chat';
+config.syncOrigin = 'http://mobile.hq.couchbase.com/';
+config.syncTarget = 'http://mobile.hq.couchbase.com/chat';
 
 config.dbUrl = config.dbHost + '/' + config.dbName;
 
