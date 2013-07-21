@@ -65,6 +65,9 @@ function waitForSyncSuccess(timeout, session_id, cb) {
     if (this.responseText) {
       task = parseActiveTasks(this.responseText, session_id);
       config.log("active task", task)
+      if (!task) {
+        return;
+      }
       if (task.status == "Idle" || task.status == "Stopped") {
         // todo maybe we are cool with tasks that have Processed > 0 changes
         offline = false;
@@ -76,6 +79,9 @@ function waitForSyncSuccess(timeout, session_id, cb) {
         clearTimeout(errorTimeout);
         done = true;
         cb("needsLogin", task);
+      } else if (task.status == "Offline") {
+        done = true;
+        cb("offline", task);
       } else if (!offline) {
         config.log("waitForSyncSuccess", task)
         clearTimeout(errorTimeout);
@@ -93,30 +99,19 @@ function loginWithPersona(cb) {
   })
 }
 
-
-function setupLocalUser(info, cb) {
-  config.db.get("_local/user", function(err, user) {
-    if (err && err.error == "not_found") {
-      config.db.post({_id : "_local/user", email:info.email}, function(err, ok){
-        cb(err, info);
-      });
-    } else {
-      if (user.email !== info.email) {
-        cb("This device is already synced for "+user.email+". To to change users please uninstall and reinstall.");
-      } else {
-        cb(false, user);
-      }
-    }
-  });
+function updateReplications(email) {
+  pullRep.source.auth = {persona:{email:email}};
+  pushRep.target.auth = {persona:{email:email}};
 };
 
 // takes care of triggering pull and push replication to the cloud.
 // also handles getting a persona assertion if there is an authentication error.
 // is a sync is running it will cancel it and retrigger transparently.
-function triggerSync(cb, retries) {
+function triggerSync(email, cb, retries) {
   if (retries === 0) return cb("too many retries");
   retries = retries || 3;
-  console.log(["triggering sync", retries, pullRep]);
+  if (email) {updateReplications(email)}
+  config.log("triggering sync "+retries, pullRep);
   refreshSync(pushRep, function(err, ok) {
     console.log(["pushRep", err, ok.session_id])
     waitForSyncSuccess(5000, ok.session_id, function(err, status){
@@ -124,20 +119,16 @@ function triggerSync(cb, retries) {
         loginWithPersona(function(err, info){
           if (err) return cb(err);
           console.log(["personaInfo", info])
-          setupLocalUser(info, function(err, user){
-            if (err) return cb(err);
-            pullRep.source.auth = {persona:{email:user.email}};
-            pushRep.target.auth = {persona:{email:user.email}};
-            console.log(["retry with email", user.email]);
-            triggerSync(cb, retries-1);
-          });
+          updateReplications(info.email)
+          console.log(["retry with email", info.email]);
+          triggerSync(cb, retries-1);
         });
       } else if (err) {
         cb(err);
       } else {
         // we are connected, set up pull replication
         refreshSync(pullRep, function(err, ok) {
-          config.db("_local/user", cb);
+          cb(false)
         });
       }
     });

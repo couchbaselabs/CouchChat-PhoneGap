@@ -1,15 +1,78 @@
-$(function() {
+var config = require('./app/config'),
+  controller = require("./app/controller"),
+  sync = require('./app/sync'),
+  // libraries
+  coax = require("coax"),
+  touchlink = require("./touchlink"),
+  fastclick = require("fastclick"),
+  router = require("./routes-element");
 
-  var config = require('./app/config'),
-    controller = require("./app/controller"),
-    sync = require('./app/sync'),
-    // libraries
-    coax = require("coax"),
-    touchlink = require("./touchlink"),
-    fastclick = require("fastclick"),
-    router = require("./routes-element");
+document.addEventListener("deviceready", appInit, false);
+// document.addEventListener("resume", myResumeListener, false);
+// document.addEventListener("pause", myPauseListener, false);
 
-  new fastclick.FastClick(document.body);
+new fastclick.FastClick(document.body);
+
+// setup the local database
+// load the current user
+// trigger sync
+// draw the UI
+function appInit() {
+ config.setup(function(err, ok){
+    if (err) {
+      config.log("setup err", err);
+    } else {
+      loadUser()
+    }
+ });
+}
+
+function loadUser() {
+  config.db.get("_local/user", function(err, user){
+    if (!err) {
+      window.email = user.email;
+      initUI()
+    }
+    triggerSync(window.email)
+  });
+}
+
+function initUI() { // assumes window.email is set
+  var contentRouter = router(controller, $("#content")[0]);
+  contentRouter.init();
+  setupChanges(function(doc){
+    // console.log(["dbchange", doc._id, doc.channel_id]);
+    // console.log(["call changesPainter", window.changesPainter.toString()])
+    controller.changesPainter && controller.changesPainter();
+  });
+};
+
+function triggerSync(email) {
+  sync.trigger(email, function(err, user){
+    if (err) {
+      // need to set an event when we are back online
+      // otherwise we might have a new install that goes online
+      // and can't setup
+      return console.log(err)
+    }
+
+    if (email && user && user.email != email) {
+      return alert("This device is already synced for "+user.email+". To to change users please uninstall and reinstall.");
+    }
+
+    if (!email && user && user.email) {
+      window.email = user.email;
+      // create profile doc to sync to server on first login
+      config.db.put("profile:"+user.email, {email: user.email, type : "profile"}, function() {
+        // local doc for fast boot next time
+        config.db.put("_local/user", {email: user.email}, function() {});
+      })
+    }
+  });
+};
+
+
+
 
   var changesSetup = false;
   function setupChanges(changesHandler) {
@@ -28,39 +91,3 @@ $(function() {
     });
 
   }
-  // start the sync
-  function appInit(cb) {
-    sync.trigger(function(err, user){
-      if (err) {
-        alert(err);
-        return;
-      }
-      if (user && user.email) {
-        window.email = user.email;
-        config.db.put("profile:"+user.email, {type : "profile"}, function() {
-          cb(false, user.email);
-        });
-      }
-    });
-  }
-
-  config.setup(function(err, ok){
-    if (err) {
-      return config.log(["setup erz",err]);
-    }
-    appInit(function(err, email) {
-      var contentRouter = router(controller, $("#content")[0]);
-      contentRouter.init();
-      setupChanges(function(doc){
-        console.log(["dbchange", doc._id, doc.channel_id]);
-        console.log(["call changesPainter", window.changesPainter.toString()])
-        window.changesPainter && window.changesPainter();
-        if (doc.channel_id == doc._id) {
-          // workaround for https://github.com/couchbaselabs/sync_gateway/issues/31
-          console.log("resync")
-          sync.trigger(function(){});
-        }
-      });
-    });
-  });
-});

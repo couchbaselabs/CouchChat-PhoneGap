@@ -9,7 +9,7 @@ var config = require('./config'),
 exports["/"] = function () {
   // render index content html
   var elem = $(this);
-  window.changesPainter = function() {
+  exports.changesPainter = function() {
     exports["/"].apply(elem);
   };
   messagesView({group_level : 1}, function(err, view) {
@@ -28,7 +28,7 @@ exports["/"] = function () {
 
 // $.ajax({url:"http://lite.couchbase./mydb/dide17d761gi",success:console.log})
 exports["/rooms/new"] = function () {
-  window.changesPainter = function(){};
+  exports.changesPainter = function(){};
   var elem = $(this);
   usersView(function(err, view){
     var rows = [];
@@ -75,10 +75,10 @@ exports["/rooms/:id"] = function(params) {
     elem.html(config.t.room(room));
     elem.find("form").submit(makeNewMessageSubmit(window.email));
     elem.find("a.photo").click(makeNewPhotoClick(window.email));
-    window.changesPainter = function(){
+    exports.changesPainter = function(){
       listMessages(elem.find(".messages"), params.id);
     };
-    window.changesPainter();
+    exports.changesPainter();
   });
 };
 

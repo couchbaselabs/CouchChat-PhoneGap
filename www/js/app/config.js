@@ -14,11 +14,13 @@ config.dbUrl = config.dbHost + '/' + config.dbName;
 config.db = coax(config.dbUrl);
 config.dbServer = coax(config.dbHost);
 
-$('script[type="text/mustache"]').each(function() {
-    var id = this.id.split('-');
-    id.pop();
-    module.exports.t[id.join('-')] = mu.compile(this.innerHTML.replace(/^\s+|\s+$/g,''));
-});
+$(function() {
+  $('script[type="text/mustache"]').each(function() {
+      var id = this.id.split('-');
+      id.pop();
+      module.exports.t[id.join('-')] = mu.compile(this.innerHTML.replace(/^\s+|\s+$/g,''));
+  });
+})
 
 var ddoc = {
   _id : "_design/threads",
@@ -63,15 +65,19 @@ var ddoc = {
 
 config.log = function(a, b) {
   if (typeof a == "string") {
-    return console.log(a, JSON.stringify(b))
+    console.log(a, JSON.stringify(b))
+  } else {
+    console.log(JSON.stringify(arguments))
   }
-  console.log(JSON.stringify(arguments))
 }
 
 config.setup = function(done) {
   // install the views
   config.db.put(function(err, ok){
-    if (err.status != 412) throw(JSON.stringify(err));
-    config.db.forceSave(ddoc, done);
+    if (err && err.status != 412) {
+      done(err);
+    } else {
+      config.db.forceSave(ddoc, done);
+    }
   })
 }
