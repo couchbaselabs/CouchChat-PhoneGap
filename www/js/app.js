@@ -1,6 +1,6 @@
-var config = require('./app/config'),
-  controller = require("./app/controller"),
-  sync = require('./app/sync'),
+var config = require('./config'),
+  controller = require("./controller"),
+  sync = require('./sync'),
   // libraries
   coax = require("coax"),
   touchlink = require("./touchlink"),
