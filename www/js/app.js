@@ -7,9 +7,10 @@ var config = require('./app/config'),
   fastclick = require("fastclick"),
   router = require("./routes-element");
 
-document.addEventListener("deviceready", appInit, false);
+// document.addEventListener("deviceready", appInit, false);
 // document.addEventListener("resume", myResumeListener, false);
 // document.addEventListener("pause", myPauseListener, false);
+$(appInit)
 
 new fastclick.FastClick(document.body);
 
@@ -48,7 +49,7 @@ function initUI() { // assumes window.email is set
 };
 
 function triggerSync(email) {
-  sync.trigger(email, function(err, user){
+  sync.trigger(email, function(err, newEmail){
     if (err) {
       // need to set an event when we are back online
       // otherwise we might have a new install that goes online
@@ -56,17 +57,20 @@ function triggerSync(email) {
       return console.log(err)
     }
 
-    if (email && user && user.email != email) {
-      return alert("This device is already synced for "+user.email+". To to change users please uninstall and reinstall.");
+    if (email && newEmail && newEmail != email) {
+      config.log("hmm", [email, newEmail])
+      return alert("This device is already synced for "+email+". To to change users please uninstall and reinstall.");
     }
 
-    if (!email && user && user.email) {
-      window.email = user.email;
+    if (!email && newEmail) {
+      window.email = newEmail;
       // create profile doc to sync to server on first login
-      config.db.put("profile:"+user.email, {email: user.email, type : "profile"}, function() {
+      config.db.put("profile:"+newEmail, {email: newEmail, type : "profile"}, function() {
         // local doc for fast boot next time
-        config.db.put("_local/user", {email: user.email}, function() {});
+        config.db.put("_local/user", {email: newEmail}, function() {});
       })
+
+      initUI();
     }
   });
 };

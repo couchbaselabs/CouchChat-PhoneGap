@@ -110,25 +110,30 @@ function updateReplications(email) {
 function triggerSync(email, cb, retries) {
   if (retries === 0) return cb("too many retries");
   retries = retries || 3;
-  if (email) {updateReplications(email)}
+  console.log("email", email)
+  if (email) {
+    updateReplications(email)
+  }
   config.log("triggering sync "+retries, pullRep);
   refreshSync(pushRep, function(err, ok) {
     console.log(["pushRep", err, ok.session_id])
     waitForSyncSuccess(5000, ok.session_id, function(err, status){
       if (err == "needsLogin") {
+        console.log("yes")
         loginWithPersona(function(err, info){
           if (err) return cb(err);
-          console.log(["personaInfo", info])
-          updateReplications(info.email)
-          console.log(["retry with email", info.email]);
-          triggerSync(cb, retries-1);
+          config.log("personaInfo", info)
+          // updateReplications(info.email)
+          config.log("retry with email", info.email);
+          triggerSync(info.email, cb, retries-1);
         });
       } else if (err) {
         cb(err);
       } else {
         // we are connected, set up pull replication
+        config.log("connecting pull", {email:email})
         refreshSync(pullRep, function(err, ok) {
-          cb(false)
+          cb(err, email)
         });
       }
     });

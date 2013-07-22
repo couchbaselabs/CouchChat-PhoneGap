@@ -6,4 +6,3 @@ window.presentPersonaDialog = function(origin, callback) {
    callback(err);
  }, "CBCordovaPersona", "presentPersonaDialog", [origin]);
 };
-console.log("loaded presentPersonaDialog")
