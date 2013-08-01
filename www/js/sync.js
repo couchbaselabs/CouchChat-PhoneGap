@@ -40,7 +40,8 @@ function parseActiveTasks(body, id) {
       } catch (e) {}
     }
   };
-  return rows[rows.length-1];
+  config.log("tasks", rows)
+  return rows.pop();
 }
 
 function onXHRChange(xhr, cb) {
@@ -68,9 +69,10 @@ function waitForSyncSuccess(timeout, session_id, cb) {
       if (!task) {
         return;
       }
-      if (task.status == "Idle" || task.status == "Stopped") {
+      if (task.status == "Idle" || task.status == "Stopped" || /Processed/.test(task.status)) {
         // todo maybe we are cool with tasks that have Processed > 0 changes
         offline = false;
+        console.log("online", task.status)
       }
       if (!task.error || task.error[0] != 401) {
         needsLogin = false;
@@ -80,8 +82,10 @@ function waitForSyncSuccess(timeout, session_id, cb) {
         done = true;
         cb("needsLogin", task);
       } else if (task.status == "Offline") {
-        done = true;
-        cb("offline", task);
+        // just wait maybe we go online
+        console.log("offline waiting for online")
+        // done = true;
+        // cb("offline", task);
       } else if (!offline) {
         config.log("waitForSyncSuccess", task)
         clearTimeout(errorTimeout);
@@ -131,8 +135,9 @@ function triggerSync(email, cb, retries) {
         cb(err);
       } else {
         // we are connected, set up pull replication
-        config.log("connecting pull", {email:email})
+        config.log("connecting pull", email)
         refreshSync(pullRep, function(err, ok) {
+          config.log("pull connected", [err, ok, email])
           cb(err, email)
         });
       }

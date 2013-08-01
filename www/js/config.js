@@ -9,6 +9,9 @@ var config = module.exports = {
 config.syncOrigin = 'http://mobile.hq.couchbase.com/';
 config.syncTarget = 'http://mobile.hq.couchbase.com/chat';
 
+// config.syncOrigin = 'http://sync.couchbasecloud.com:4984/';
+// config.syncTarget = 'http://sync.couchbasecloud.com:4984/chat7';
+
 config.dbUrl = config.dbHost + '/' + config.dbName;
 
 config.db = coax(config.dbUrl);
