@@ -57,6 +57,24 @@
             ReferencedContainer = "container:LiteGap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-Log YES"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-LogSyncVerbose YES"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-LogSync YES"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-LogRemoteRequest YES"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

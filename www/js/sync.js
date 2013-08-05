@@ -40,7 +40,7 @@ function parseActiveTasks(body, id) {
       } catch (e) {}
     }
   };
-  config.log("tasks", rows)
+  config.log("task snapshots", rows)
   return rows.pop();
 }
 
@@ -59,7 +59,9 @@ function waitForSyncSuccess(timeout, session_id, cb) {
     done = true;
     cb("timeout", task);
   }, timeout);
-  var req = config.dbServer.get(["_active_tasks", {feed : "continuous"}], function(){});
+  var req = config.dbServer.get(["_active_tasks", {feed : "continuous"}], function(err, resp){
+    config.log("active tasks feed closed", [err, resp])
+  });
   onXHRChange(req, function(){
     if (done) return;
     var offline = true, needsLogin = true;
@@ -69,7 +71,7 @@ function waitForSyncSuccess(timeout, session_id, cb) {
       if (!task) {
         return;
       }
-      if (task.status == "Idle" || task.status == "Stopped" || /Processed/.test(task.status)) {
+      if (task.status == "Idle" || task.status == "Stopped" || (/Processed/.test(task.status) && !/Processed 0/.test(task.status))) {
         // todo maybe we are cool with tasks that have Processed > 0 changes
         offline = false;
         console.log("online", task.status)
@@ -117,11 +119,12 @@ function triggerSync(email, cb, retries) {
   console.log("email", email)
   if (email) {
     updateReplications(email)
+    cb(false, email)
   }
-  config.log("triggering sync "+retries, pullRep);
+  config.log("triggering sync "+retries, pushRep);
   refreshSync(pushRep, function(err, ok) {
     console.log(["pushRep", err, ok.session_id])
-    waitForSyncSuccess(5000, ok.session_id, function(err, status){
+    waitForSyncSuccess(10000, ok.session_id, function(err, status){
       if (err == "needsLogin") {
         console.log("yes")
         loginWithPersona(function(err, info){
@@ -129,7 +132,18 @@ function triggerSync(email, cb, retries) {
           config.log("personaInfo", info)
           // updateReplications(info.email)
           config.log("retry with email", info.email);
-          triggerSync(info.email, cb, retries-1);
+          updateReplications(info.email)
+          cb(false, info.email)
+          refreshSync(pushRep, function(err, ok) {})
+          refreshSync(pullRep, function(err, ok) {
+            config.log("pull connected", [err, ok, info.email])
+          })
+          // triggerSync(info.email, cb, retries-1);
+        });
+      } else if (err == "timeout") {
+        // maybe active tasks didn't update
+        config.dbServer.get("_active_tasks", function(err, tasks){
+          config.log("active tasks after timeout", tasks)
         });
       } else if (err) {
         cb(err);
@@ -138,7 +152,7 @@ function triggerSync(email, cb, retries) {
         config.log("connecting pull", email)
         refreshSync(pullRep, function(err, ok) {
           config.log("pull connected", [err, ok, email])
-          cb(err, email)
+          // cb(err, email)
         });
       }
     });

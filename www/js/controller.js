@@ -13,7 +13,6 @@ exports["/"] = function () {
     exports["/"].apply(elem);
   };
   messagesView({group_level : 1}, function(err, view) {
-    console.log(['sort these', view.rows]);
     var rows = view.rows.sort(function(a, b){ return new Date(b.value[0]) - new Date(a.value[0])});
     async.map(rows, function(row, cb) {
       config.db.get(row.key[0], function(err, doc){

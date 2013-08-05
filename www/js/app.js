@@ -7,6 +7,8 @@ var config = require('./config'),
   fastclick = require("fastclick"),
   router = require("./routes-element");
 
+window.coax = coax;
+
 // document.addEventListener("deviceready", appInit, false);
 // document.addEventListener("resume", myResumeListener, false);
 // document.addEventListener("pause", myPauseListener, false);
@@ -54,7 +56,7 @@ function triggerSync(email) {
       // need to set an event when we are back online
       // otherwise we might have a new install that goes online
       // and can't setup
-      return console.log(err)
+      return config.log(err)
     }
 
     if (email && newEmail && newEmail != email) {

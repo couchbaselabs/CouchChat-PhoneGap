@@ -5,12 +5,11 @@ var config = module.exports = {
   mu = require("mustache"),
   coax = require("coax");
 
-// todo make configurable in-app
 config.syncOrigin = 'http://mobile.hq.couchbase.com/';
 config.syncTarget = 'http://mobile.hq.couchbase.com/chat';
 
-// config.syncOrigin = 'http://sync.couchbasecloud.com:4984/';
-// config.syncTarget = 'http://sync.couchbasecloud.com:4984/chat7';
+//config.syncOrigin = 'http://mineral.local:4984/';
+//config.syncTarget = 'http://mineral.local:4984/chat/';
 
 config.dbUrl = config.dbHost + '/' + config.dbName;
 
